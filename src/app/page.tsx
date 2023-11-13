@@ -21,7 +21,7 @@ export default function Home() {
             <h3 className={styles.cardTitle}>First Steps →</h3>
             <div className={styles.cardText}>
               Just the basics - Everything you need to know to set up your
-              database and authentication.
+              database.
             </div>
           </Link>
           <Link
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
         <div className={styles.showcaseContainer}>
           <p className={styles.showcaseText}>
-            TRPC is great, Igor, join trpc
+            TRPC is great, Igor, join trpc , its very simple and cool
           </p>
         </div>
 
