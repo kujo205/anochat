@@ -4,8 +4,7 @@ import { CreatePost } from "@/app/_components/create-post";
 import { api } from "@/trpc/server";
 import styles from "./index.module.css";
 
-export default async function Home() {
-  const hello = await api.post.hello.query({ text: "from tRPC" });
+export default function Home() {
 
   return (
     <main className={styles.main}>
@@ -39,7 +38,7 @@ export default async function Home() {
         </div>
         <div className={styles.showcaseContainer}>
           <p className={styles.showcaseText}>
-            {hello ? hello.greeting : "Loading tRPC query..."}
+            TRPC is great, Igor, join trpc
           </p>
         </div>
 
@@ -50,16 +49,17 @@ export default async function Home() {
 }
 
 async function CrudShowcase() {
-  const latestPost = await api.post.getLatest.query();
+  const latestUser = await api.user.getLatestUser.query();
+
 
   return (
     <div className={styles.showcaseContainer}>
-      {latestPost ? (
+      {latestUser ? (
         <p className={styles.showcaseText}>
-          Your most recent post: {latestPost.name}
+          Your most recent user: {latestUser.name}
         </p>
       ) : (
-        <p className={styles.showcaseText}>You have no posts yet.</p>
+        <p className={styles.showcaseText}>You have no users yet.</p>
       )}
 
       <CreatePost />
