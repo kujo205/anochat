@@ -5,6 +5,7 @@ import { sql } from "drizzle-orm";
 import {
     bigint,
     index,
+    int,
     mysqlTableCreator,
     timestamp,
     varchar, mysqlEnum, boolean,
@@ -46,6 +47,7 @@ export const room=mysqlTable(
         type:mysqlEnum('group_type', ['PERSONAL', 'DUAL', 'MULTIPLE']),
         createdAt:timestamp('created_at').default(sql`CURRENT_TIMESTAMP`).notNull(),
         updatedAt:timestamp('updated_at').onUpdateNow(),
+        maxUsers:int('max_users')
     }
 )
 

@@ -1,67 +1,28 @@
 import Link from "next/link";
-
+// import { useState } from "react";
 import { CreatePost } from "@/app/_components/create-post";
 import { api } from "@/trpc/server";
 import styles from "./index.module.css";
-
+import MessageList from "@/app/_components/MessageList";
 export default function Home() {
-
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <h1 className={styles.title}>
           Create <span className={styles.pinkSpan}>T3</span> App
         </h1>
-        <div className={styles.cardRow}>
-          <Link
-            className={styles.card}
-            href="https://create.t3.gg/en/usage/first-steps"
-            target="_blank"
-          >
-            <h3 className={styles.cardTitle}>First Steps →</h3>
-            <div className={styles.cardText}>
-              Just the basics - Everything you need to know to set up your
-              database.
-            </div>
-          </Link>
-          <Link
-            className={styles.card}
-            href="https://create.t3.gg/en/introduction"
-            target="_blank"
-          >
-            <h3 className={styles.cardTitle}>Documentation →</h3>
-            <div className={styles.cardText}>
-              Learn more about Create T3 App, the libraries it uses, and how to
-              deploy it.
-            </div>
-          </Link>
-        </div>
-        <div className={styles.showcaseContainer}>
-          <p className={styles.showcaseText}>
-            TRPC is great, Igor, join trpc , its very simple and cool
-          </p>
-        </div>
-
+          <MessageList/>
         <CrudShowcase />
       </div>
     </main>
   );
 }
 
-async function CrudShowcase() {
-  const latestUser = await api.user.getLatestUser.query();
+ function CrudShowcase() {
 
 
   return (
     <div className={styles.showcaseContainer}>
-      {latestUser ? (
-        <p className={styles.showcaseText}>
-          Your most recent user: {latestUser.name}
-        </p>
-      ) : (
-        <p className={styles.showcaseText}>You have no users yet.</p>
-      )}
-
       <CreatePost />
     </div>
   );

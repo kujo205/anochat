@@ -17,6 +17,10 @@ export const env = createEnv({
     NODE_ENV: z
       .enum(["development", "test", "production"])
       .default("development"),
+    PUSHER_APP_ID:z.string(),
+    PUSHER_KEY:z.string(),
+    PUSHER_SECRET:z.string(),
+    PUSHER_CLUSTER:z.string()
   },
 
   /**
@@ -25,7 +29,8 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
-    // NEXT_PUBLIC_CLIENTVAR: z.string(),
+    NEXT_PUBLIC_PUSHER_KEY: z.string(),
+    NEXT_PUBLIC_PUSHER_CLUSTER:z.string()
   },
 
   /**
@@ -35,7 +40,12 @@ export const env = createEnv({
   runtimeEnv: {
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
-    // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
+    PUSHER_APP_ID:process.env.PUSHER_APP_ID,
+    PUSHER_KEY:process.env.PUSHER_KEY,
+    PUSHER_SECRET:process.env.PUSHER_SECRET,
+    PUSHER_CLUSTER:process.env.PUSHER_CLUSTER,
+    NEXT_PUBLIC_PUSHER_KEY: process.env.NEXT_PUBLIC_PUSHER_KEY,
+    NEXT_PUBLIC_PUSHER_CLUSTER:process.env.NEXT_PUBLIC_PUSHER_CLUSTER
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially

@@ -2,6 +2,8 @@ import { z } from "zod";
 
 import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
 import { user } from "@/server/db/schema";
+import {pusherServerClient} from '@/server/pusher'
+
 
 export const userRouter = createTRPCRouter({
   createUser: publicProcedure
@@ -17,4 +19,8 @@ export const userRouter = createTRPCRouter({
         orderBy: (user, { desc }) => [desc(user.createdAt)],
     })
   }),
+    sendTestPusherMessage:publicProcedure.input(z.object({test:z.string()})).mutation(async ({ctx,input})=> {
+
+        await pusherServerClient.trigger('test','test',input)
+    })
 });
