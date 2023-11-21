@@ -20,7 +20,7 @@ import {PusherWebClient} from "@/app/pusher";
 
 
 
-    return (<div>{messages.map((message,i)=>(<h3 key={i} color={'#FFFFFF'}>{message}</h3>))}</div>);
+    return (<div>{messages.map((message,i)=>(<h3 key={i} color={'#fff'}>{message}</h3>))}</div>);
 
 }
 
