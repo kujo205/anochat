@@ -9,7 +9,7 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.container}>
         <h1 className={styles.title}>
-          Create <span className={styles.pinkSpan}>T3</span> App
+            Try <span className={styles.pinkSpan}>Ano Chat</span>
         </h1>
           <MessageList/>
         <CrudShowcase />
