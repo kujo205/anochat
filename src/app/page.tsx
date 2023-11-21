@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import './_styles/index.css'
-import { CreatePost } from '@/app/_components/create-post'
+import { CreatePost } from '@/components/create-post'
 import { api } from '@/trpc/server'
 import styles from './index.module.css'
-import MessageList from '@/app/_components/MessageList'
+import MessageList from '@/components/MessageList'
 export default function Home() {
     return (
         <main className={styles.main}>
