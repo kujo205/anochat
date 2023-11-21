@@ -2,11 +2,17 @@
 
 import { useRouter } from "next/navigation";
 import {useEffect, useState} from "react";
+import { api } from "@/trpc/react";
 
 
 import {PusherWebClient} from "@/app/pusher";
 
+
  function MessageList() {
+
+    const users=api.user.getAllUsers.useQuery()
+
+
     const [messages, setMessages]=useState<Array<string>>([])
 
     useEffect(()=>{
@@ -20,7 +26,14 @@ import {PusherWebClient} from "@/app/pusher";
 
 
 
-    return (<div>{messages.map((message,i)=>(<h3 key={i} color={'#fff'}>{message}</h3>))}</div>);
+    return (<div>
+        {messages.map((message,i)=>(<h3 key={i} color={'#fff'}>{message}</h3>))}
+        <pre>
+            {JSON.stringify(users.data,null,2)}
+        </pre>
+
+
+    </div>);
 
 }
 
