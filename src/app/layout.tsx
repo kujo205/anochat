@@ -7,7 +7,6 @@ import { TRPCReactProvider } from '@/trpc/react'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { Card } from '@/components/ui/card'
 import { MyNavigationMenu } from '@/components/ui/navigation-menu'
-import { Link } from 'next'
 
 const inter = Inter({
     subsets: ['latin'],
