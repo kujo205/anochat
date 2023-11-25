@@ -3,23 +3,12 @@ import { CreatePost } from '@/components/create-post'
 import { api } from '@/trpc/server'
 import styles from './index.module.css'
 import MessageList from '@/components/MessageList'
+import { Card } from '@/components/ui/card'
+
 export default function Home() {
     return (
-        <main className={styles.main}>
-            <div className={styles.container}>
-                <h1 className={styles.title}>
-                    Try <span className={styles.pinkSpan}>Ano Chat</span>
-                </h1>
-                <MessageList />
-                <CrudShowcase />
-            </div>
-        </main>
-    )
-}
-
-function CrudShowcase() {
-    return (
-        <div className={styles.showcaseContainer}>
+        <div className="flex flex-col h-[100%] flex-1">
+            <MessageList />
             <CreatePost />
         </div>
     )

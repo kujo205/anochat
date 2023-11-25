@@ -19,7 +19,7 @@ function MessageList() {
     }, [])
 
     return (
-        <div className="text-white text-lg flex flex-col items-center">
+        <div className="text-white text-lg flex flex-col items-center h-[90%] overflow-y-scroll">
             {messages.map((message, i) => (
                 <h3 key={i} color={'#fff'}>
                     {message}
